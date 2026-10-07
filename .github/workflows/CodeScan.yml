@@ -12,16 +12,12 @@ jobs:
    analyze:
     name: Analyze (${{ matrix.language }})
     runs-on: ubuntu-latest
- 
-    # STEP 2: Permissions - least privilege
     permissions:
       security-events: write    # required to upload results to the Security tab
       contents: read            # required to read the repo code
       actions: read             # required for private repos
       packages: read            # required to fetch CodeQL packs
  
-    # STEP 3: Languages to scan - add more entries to scan multiple languages
-    #   javascript-typescript | python | java-kotlin | go | csharp | ruby | cpp | swift
     strategy:
       fail-fast: false
       matrix:
@@ -37,17 +33,8 @@ jobs:
         uses: github/codeql-action/init@v3
         with:
           languages: ${{ matrix.language }}
-          # Query suites (pick one):
-          #   default            - high-confidence security queries
-          #   security-extended  - more security queries, slightly more noise
-          #   security-and-quality - security + code quality queries
           queries: security-extended
- 
-      # Step 3: build step - NOT needed for JavaScript/TypeScript/Python/Ruby.
-      # Needed only for compiled languages (Java, C#, Go, C++, Swift).
-      # - name: Autobuild
-      #   uses: github/codeql-action/autobuild@v3
- 
+          
       # Step 4: run the queries against the database and upload results
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v3
