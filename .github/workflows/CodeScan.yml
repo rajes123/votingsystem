@@ -42,6 +42,7 @@ jobs:
 
    SecuretyScan:
     runs-on: ubuntu-latest
+    needs: CodeQLCan
     steps:
     - uses: actions/checkout@v4 
     - name: Install trivy
