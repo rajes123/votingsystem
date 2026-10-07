@@ -60,5 +60,5 @@ jobs:
       run: sudo apt install gitleaks
 
     - name: Gitlakes code scan
-      run: gitlakes detect source . -r gitlakes-reprots.json -f json
+      run: gitleakes detect source . -r gitleakes-reprots.json -f json
     
