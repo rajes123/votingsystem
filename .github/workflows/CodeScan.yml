@@ -41,7 +41,7 @@ jobs:
         with:
           category: "/language:${{ matrix.language }}"   # separates results per language
 
-  SecuretyScan:
+   SecuretyScan:
     runs-on: ubuntu-latest
     steps:
     - uses: actions@checkout@v4
