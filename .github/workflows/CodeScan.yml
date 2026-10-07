@@ -62,7 +62,7 @@ jobs:
     - name: Gitlakes code scan
       run: gitleaks detect --source . --report-path gitleaks-report.json
       
-  dockerbuildandpush:
+   dockerbuildandpush:
     runs-on: ubuntu-latest
     needs: SecuretyScan
     steps:
