@@ -54,7 +54,7 @@ jobs:
         sudo apt-get install trivy -y
 
     - name: Scan code using trivy
-      run: trivy if --format table -o fs-reports.json .
+      run: trivy fs --format table -o fs-reports.json .
 
     - name: install gitlakes
       run: sudo apt install gitleaks
