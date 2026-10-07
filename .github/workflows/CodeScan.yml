@@ -79,6 +79,6 @@ jobs:
         uses: docker/build-push-action@v7
         with:
           push: true
-          tags: app:latest
+          tags: raaz97/votingsystem:1.0.0
          
     
