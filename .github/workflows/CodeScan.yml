@@ -1,5 +1,4 @@
 name: Deploy code to aws
-
 on:
   push:
     branches:
@@ -9,7 +8,7 @@ on:
       -  master
 
 jobs:
-   analyze:
+   CodeQLCan:
     name: Analyze (${{ matrix.language }})
     runs-on: ubuntu-latest
     permissions:
@@ -44,7 +43,7 @@ jobs:
    SecuretyScan:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions@checkout@v4
+    - uses: actions/checkout@v4 
     - name: Install trivy
       run: |
         sudo apt-get install wget gnupg
